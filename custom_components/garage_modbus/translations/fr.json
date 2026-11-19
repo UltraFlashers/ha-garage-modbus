@@ -1,0 +1,133 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Garage Modbus",
+        "description": "Choisis le port USB du pont LoRa (ou de l'adaptateur RS485) relié au garage. Le garage doit répondre pour que l'ajout aboutisse.",
+        "data": {
+          "port": "Port USB",
+          "baudrate": "Vitesse (bauds)",
+          "slave": "Numéro d'esclave Modbus"
+        },
+        "data_description": {
+          "baudrate": "Celle réglée sur /config de la carte, section Modbus (9600 par défaut).",
+          "slave": "1 par défaut."
+        }
+      },
+      "manual": {
+        "title": "Chemin du port",
+        "description": "Chemin du port série, par exemple /dev/serial/by-id/usb-… ou /dev/ttyUSB0.",
+        "data": {
+          "manual_path": "Chemin"
+        }
+      },
+      "reconfigure": {
+        "title": "Changer de port USB",
+        "description": "Nouveau port, vitesse ou esclave. L'intégration redémarre avec ces réglages.",
+        "data": {
+          "port": "Port USB",
+          "baudrate": "Vitesse (bauds)",
+          "slave": "Numéro d'esclave Modbus"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Le garage ne répond pas : vérifie le port, la vitesse, le numéro d'esclave et la liaison LoRa."
+    },
+    "abort": {
+      "already_configured": "Ce garage est déjà configuré sur ce port.",
+      "reconfigure_successful": "Réglages enregistrés."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Garage Modbus",
+        "data": {
+          "scan_interval": "Intervalle de lecture"
+        },
+        "data_description": {
+          "scan_interval": "Une lecture groupée des registres 100 à 108 par intervalle. 5 s conviennent au LoRa."
+        }
+      }
+    }
+  },
+  "selector": {
+    "port": {
+      "options": {
+        "manual": "Saisir le chemin à la main…"
+      }
+    }
+  },
+  "entity": {
+    "cover": {
+      "porte": {
+        "name": "Porte"
+      }
+    },
+    "light": {
+      "lampe": {
+        "name": "Lampe"
+      }
+    },
+    "button": {
+      "stop": {
+        "name": "Stop"
+      }
+    },
+    "sensor": {
+      "temperature": {
+        "name": "Température"
+      },
+      "humidite": {
+        "name": "Humidité"
+      },
+      "position": {
+        "name": "Position"
+      },
+      "radar_distance": {
+        "name": "Distance radar"
+      },
+      "radar_cible": {
+        "name": "Cible radar",
+        "state": {
+          "personne": "Personne",
+          "mouvement": "En mouvement",
+          "immobile": "Immobile",
+          "mouvement_immobile": "Mouvement et immobile"
+        }
+      },
+      "pile_bouton": {
+        "name": "Pile du bouton"
+      },
+      "etat_automate": {
+        "name": "État de l'automate",
+        "state": {
+          "fermee": "Fermée",
+          "ouverte": "Ouverte",
+          "arretee": "Arrêtée",
+          "monte": "Monte",
+          "descend": "Descend",
+          "pause": "Temps mort"
+        }
+      }
+    },
+    "binary_sensor": {
+      "presence": {
+        "name": "Présence"
+      },
+      "defaut": {
+        "name": "Défaut"
+      },
+      "cellule": {
+        "name": "Cellule"
+      },
+      "palpeur": {
+        "name": "Palpeur"
+      },
+      "pile_faible": {
+        "name": "Pile du bouton faible"
+      }
+    }
+  }
+}

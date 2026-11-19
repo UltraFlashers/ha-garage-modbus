@@ -1,0 +1,133 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Garage Modbus",
+        "description": "Pick the USB port of the LoRa bridge (or RS485 adapter) linked to the garage. The garage must answer for the setup to succeed.",
+        "data": {
+          "port": "USB port",
+          "baudrate": "Baud rate",
+          "slave": "Modbus slave number"
+        },
+        "data_description": {
+          "baudrate": "As set on the board's /config page, Modbus section (9600 by default).",
+          "slave": "1 by default."
+        }
+      },
+      "manual": {
+        "title": "Port path",
+        "description": "Serial port path, e.g. /dev/serial/by-id/usb-… or /dev/ttyUSB0.",
+        "data": {
+          "manual_path": "Path"
+        }
+      },
+      "reconfigure": {
+        "title": "Change USB port",
+        "description": "New port, baud rate or slave. The integration reloads with these settings.",
+        "data": {
+          "port": "USB port",
+          "baudrate": "Baud rate",
+          "slave": "Modbus slave number"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "The garage does not answer: check the port, baud rate, slave number and the LoRa link."
+    },
+    "abort": {
+      "already_configured": "This garage is already configured on this port.",
+      "reconfigure_successful": "Settings saved."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Garage Modbus",
+        "data": {
+          "scan_interval": "Polling interval"
+        },
+        "data_description": {
+          "scan_interval": "One grouped read of registers 100-108 per interval. 5 s suits LoRa."
+        }
+      }
+    }
+  },
+  "selector": {
+    "port": {
+      "options": {
+        "manual": "Enter the path manually…"
+      }
+    }
+  },
+  "entity": {
+    "cover": {
+      "porte": {
+        "name": "Door"
+      }
+    },
+    "light": {
+      "lampe": {
+        "name": "Lamp"
+      }
+    },
+    "button": {
+      "stop": {
+        "name": "Stop"
+      }
+    },
+    "sensor": {
+      "temperature": {
+        "name": "Temperature"
+      },
+      "humidite": {
+        "name": "Humidity"
+      },
+      "position": {
+        "name": "Position"
+      },
+      "radar_distance": {
+        "name": "Radar distance"
+      },
+      "radar_cible": {
+        "name": "Radar target",
+        "state": {
+          "personne": "Nobody",
+          "mouvement": "Moving",
+          "immobile": "Still",
+          "mouvement_immobile": "Moving and still"
+        }
+      },
+      "pile_bouton": {
+        "name": "Button battery"
+      },
+      "etat_automate": {
+        "name": "Controller state",
+        "state": {
+          "fermee": "Closed",
+          "ouverte": "Open",
+          "arretee": "Stopped",
+          "monte": "Opening",
+          "descend": "Closing",
+          "pause": "Dead time"
+        }
+      }
+    },
+    "binary_sensor": {
+      "presence": {
+        "name": "Presence"
+      },
+      "defaut": {
+        "name": "Fault"
+      },
+      "cellule": {
+        "name": "Photocell"
+      },
+      "palpeur": {
+        "name": "Safety edge"
+      },
+      "pile_faible": {
+        "name": "Button battery low"
+      }
+    }
+  }
+}
