@@ -51,6 +51,7 @@ Si le garage ne répond plus (LoRa coupé, carte éteinte), l'intégration passe
 | Pile du bouton | registre 108, pile la plus basse des boutons Bluetooth |
 | État de l'automate (diagnostic) | registre 104 |
 | Présence, Défaut, Cellule, Pile du bouton faible, Palpeur | bits 1, 3, 4, 5 et 6 du registre 102 |
+| Fin de course ouvert (diagnostic, **désactivée par défaut**) | bit 7 du registre 102 ; à activer dans l'appareil si le contact est câblé sur DI7 de la carte |
 
 Toutes les commandes passent par la machine d'état de la carte et ses sécurités : cellule ou palpeur actifs, la fermeture est refusée ; bouton STOP tenu, rien ne démarre.
 

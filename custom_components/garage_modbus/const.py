@@ -30,6 +30,7 @@ BIT_FAULT = 3
 BIT_BEAM = 4
 BIT_BATTERY_LOW = 5
 BIT_SAFETY_EDGE = 6
+BIT_OPEN_LIMIT = 7  # fin de course ouvert (optionnel sur la carte)
 
 # Registre 105 (etat pour le cover)
 COVER_CLOSED = 0

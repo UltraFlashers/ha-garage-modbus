@@ -9,11 +9,12 @@ from homeassistant.components.binary_sensor import (
     BinarySensorEntity,
     BinarySensorEntityDescription,
 )
+from homeassistant.const import EntityCategory
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 
 from . import GarageConfigEntry
-from .const import BIT_BATTERY_LOW, BIT_BEAM, BIT_FAULT, BIT_PRESENCE, BIT_SAFETY_EDGE
+from .const import BIT_BATTERY_LOW, BIT_BEAM, BIT_FAULT, BIT_OPEN_LIMIT, BIT_PRESENCE, BIT_SAFETY_EDGE
 from .entity import GarageEntity
 
 
@@ -28,6 +29,11 @@ BINARY_SENSORS: tuple[GarageBinaryDescription, ...] = (
     GarageBinaryDescription(key="cellule", device_class=BinarySensorDeviceClass.SAFETY, bit=BIT_BEAM),
     GarageBinaryDescription(key="palpeur", device_class=BinarySensorDeviceClass.SAFETY, bit=BIT_SAFETY_EDGE),
     GarageBinaryDescription(key="pile_faible", device_class=BinarySensorDeviceClass.BATTERY, bit=BIT_BATTERY_LOW),
+    # Fin de course ouvert : « on » = porte en haut. Desactive par defaut dans Home Assistant,
+    # comme sur la carte (il n'a de sens que si le contact est cable sur DI7).
+    GarageBinaryDescription(
+        key="fc_ouvert", bit=BIT_OPEN_LIMIT, entity_category=EntityCategory.DIAGNOSTIC, entity_registry_enabled_default=False
+    ),
 )
 
 

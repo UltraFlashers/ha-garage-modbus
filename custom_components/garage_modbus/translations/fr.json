@@ -127,6 +127,9 @@
       },
       "pile_faible": {
         "name": "Pile du bouton faible"
+      },
+      "fc_ouvert": {
+        "name": "Fin de course ouvert"
       }
     }
   }

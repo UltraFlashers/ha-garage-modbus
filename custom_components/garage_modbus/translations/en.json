@@ -127,6 +127,9 @@
       },
       "pile_faible": {
         "name": "Button battery low"
+      },
+      "fc_ouvert": {
+        "name": "Open limit switch"
       }
     }
   }
