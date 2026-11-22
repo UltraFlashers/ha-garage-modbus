@@ -14,7 +14,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 
 from . import GarageConfigEntry
-from .const import BIT_BATTERY_LOW, BIT_BEAM, BIT_FAULT, BIT_OPEN_LIMIT, BIT_PRESENCE, BIT_SAFETY_EDGE
+from .const import BIT_BATTERY_LOW, BIT_BEAM, BIT_FAULT, BIT_OPEN_LIMIT, BIT_PRESENCE, BIT_SAFETY_EDGE, BIT_VEHICLE, BIT_WICKET
 from .entity import GarageEntity
 
 
@@ -33,6 +33,17 @@ BINARY_SENSORS: tuple[GarageBinaryDescription, ...] = (
     # comme sur la carte (il n'a de sens que si le contact est cable sur DI7).
     GarageBinaryDescription(
         key="fc_ouvert", bit=BIT_OPEN_LIMIT, entity_category=EntityCategory.DIAGNOSTIC, entity_registry_enabled_default=False
+    ),
+    # Voiture garee : « on » = vehicule detecte. Simple information. Desactive par defaut,
+    # comme sur la carte (il faut un capteur cable sur une DI et choisi dans les reglages).
+    GarageBinaryDescription(
+        key="vehicule", device_class=BinarySensorDeviceClass.OCCUPANCY, icon="mdi:car", bit=BIT_VEHICLE,
+        entity_registry_enabled_default=False,
+    ),
+    # Portillon de la porte : « on » = ouvert, la porte est alors bloquee. Desactive par defaut,
+    # comme sur la carte (contact a cabler sur une DI et a choisir dans les reglages).
+    GarageBinaryDescription(
+        key="portillon", device_class=BinarySensorDeviceClass.DOOR, bit=BIT_WICKET, entity_registry_enabled_default=False,
     ),
 )
 

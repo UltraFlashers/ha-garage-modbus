@@ -31,6 +31,8 @@ BIT_BEAM = 4
 BIT_BATTERY_LOW = 5
 BIT_SAFETY_EDGE = 6
 BIT_OPEN_LIMIT = 7  # fin de course ouvert (optionnel sur la carte)
+BIT_VEHICLE = 8  # voiture garee (capteur de vehicule optionnel sur la carte)
+BIT_WICKET = 9  # portillon de la porte ouvert (optionnel sur la carte)
 
 # Registre 105 (etat pour le cover)
 COVER_CLOSED = 0

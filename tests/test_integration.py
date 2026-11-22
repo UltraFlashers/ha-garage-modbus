@@ -60,9 +60,11 @@ async def test_entites_et_commandes(hass: HomeAssistant, garage: GarageSimule) -
 
     ent = er.async_get(hass)
     ids = {e.translation_key: e.entity_id for e in er.async_entries_for_config_entry(ent, entry.entry_id)}
-    assert len(ids) == 16          # porte, lampe, stop, 7 capteurs, 6 binaires
+    assert len(ids) == 18          # porte, lampe, stop, 7 capteurs, 8 binaires
     fco = ent.async_get(ids["fc_ouvert"])
     assert fco.disabled_by is er.RegistryEntryDisabler.INTEGRATION   # desactive par defaut, comme sur la carte
+    assert ent.async_get(ids["vehicule"]).disabled_by is er.RegistryEntryDisabler.INTEGRATION
+    assert ent.async_get(ids["portillon"]).disabled_by is er.RegistryEntryDisabler.INTEGRATION
     porte, lampe, stop = ids["porte"], ids["lampe"], ids["stop"]
 
     assert hass.states.get(porte).state == "closed"

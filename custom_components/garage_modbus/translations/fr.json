@@ -130,6 +130,12 @@
       },
       "fc_ouvert": {
         "name": "Fin de course ouvert"
+      },
+      "vehicule": {
+        "name": "Voiture"
+      },
+      "portillon": {
+        "name": "Portillon"
       }
     }
   }

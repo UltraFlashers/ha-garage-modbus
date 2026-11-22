@@ -3,7 +3,7 @@
 Intégration Home Assistant du contrôleur de porte de garage **Garage Modbus** (ESP32-S3, carte Waveshare 8DI-8DO, firmware v6), relié en **Modbus RTU** par un pont **LoRa USB** ou un adaptateur **USB-RS485**.
 
 - Ajout par l'interface : **le port USB se choisit dans une liste**, avec saisie manuelle possible.
-- Un appareil **Garage** avec toutes ses entités : porte, lampe, bouton Stop, température, humidité, position, radar, pile du bouton Bluetooth, défaut, cellule, palpeur…
+- Un appareil **Garage** avec toutes ses entités : porte, lampe, bouton Stop, température, humidité, position, radar, pile du bouton Bluetooth, défaut, cellule, palpeur, voiture garée, portillon…
 - **Une seule lecture groupée** des registres 100 à 108 par cycle : économe pour le LoRa.
 - Port, vitesse et esclave modifiables ensuite (*Reconfigurer*), intervalle de lecture dans les *Options*.
 
@@ -52,8 +52,10 @@ Si le garage ne répond plus (LoRa coupé, carte éteinte), l'intégration passe
 | État de l'automate (diagnostic) | registre 104 |
 | Présence, Défaut, Cellule, Pile du bouton faible, Palpeur | bits 1, 3, 4, 5 et 6 du registre 102 |
 | Fin de course ouvert (diagnostic, **désactivée par défaut**) | bit 7 du registre 102 ; à activer dans l'appareil si le contact est câblé sur DI7 de la carte |
+| Voiture (**désactivée par défaut**) | bit 8 du registre 102 : voiture garée ; à activer dans l'appareil si un capteur de véhicule est câblé et choisi dans les réglages de la carte |
+| Portillon (**désactivé par défaut**) | bit 9 du registre 102 : portillon de la porte ouvert, la porte est alors bloquée ; à activer dans l'appareil si son contact est câblé et choisi dans les réglages de la carte |
 
-Toutes les commandes passent par la machine d'état de la carte et ses sécurités : cellule ou palpeur actifs, la fermeture est refusée ; bouton STOP tenu, rien ne démarre.
+La voiture est une simple information : elle n'agit ni sur la porte ni sur la lampe. Toutes les commandes passent par la machine d'état de la carte et ses sécurités : cellule ou palpeur actifs, la fermeture est refusée ; bouton STOP tenu, rien ne démarre.
 
 ## Compatibilité
 

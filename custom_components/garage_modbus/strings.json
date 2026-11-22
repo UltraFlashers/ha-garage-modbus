@@ -130,6 +130,12 @@
       },
       "fc_ouvert": {
         "name": "Open limit switch"
+      },
+      "vehicule": {
+        "name": "Car"
+      },
+      "portillon": {
+        "name": "Wicket door"
       }
     }
   }
