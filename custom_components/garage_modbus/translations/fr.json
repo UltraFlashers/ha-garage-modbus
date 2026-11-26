@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Garage Modbus",
-        "description": "Choisis le port USB du pont LoRa (ou de l'adaptateur RS485) relié au garage. Le garage doit répondre pour que l'ajout aboutisse.",
+        "description": "Choisis le port USB de l'adaptateur RS485 relié au garage. Le garage doit répondre pour que l'ajout aboutisse.",
         "data": {
           "port": "Port USB",
           "baudrate": "Vitesse (bauds)",
@@ -32,7 +32,7 @@
       }
     },
     "error": {
-      "cannot_connect": "Le garage ne répond pas : vérifie le port, la vitesse, le numéro d'esclave et la liaison LoRa."
+      "cannot_connect": "Le garage ne répond pas : vérifie le port, la vitesse, le numéro d'esclave et le câblage RS485 (A+ sur A+, B- sur B-)."
     },
     "abort": {
       "already_configured": "Ce garage est déjà configuré sur ce port.",
@@ -47,7 +47,7 @@
           "scan_interval": "Intervalle de lecture"
         },
         "data_description": {
-          "scan_interval": "Une lecture groupée des registres 100 à 108 par intervalle. 5 s conviennent au LoRa."
+          "scan_interval": "Une lecture groupée des registres 100 à 108 par intervalle."
         }
       }
     }

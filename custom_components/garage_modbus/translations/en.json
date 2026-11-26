@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Garage Modbus",
-        "description": "Pick the USB port of the LoRa bridge (or RS485 adapter) linked to the garage. The garage must answer for the setup to succeed.",
+        "description": "Pick the USB port of the RS485 adapter linked to the garage. The garage must answer for the setup to succeed.",
         "data": {
           "port": "USB port",
           "baudrate": "Baud rate",
@@ -32,7 +32,7 @@
       }
     },
     "error": {
-      "cannot_connect": "The garage does not answer: check the port, baud rate, slave number and the LoRa link."
+      "cannot_connect": "The garage does not answer: check the port, baud rate, slave number and the RS485 wiring (A+ to A+, B- to B-)."
     },
     "abort": {
       "already_configured": "This garage is already configured on this port.",
@@ -47,7 +47,7 @@
           "scan_interval": "Polling interval"
         },
         "data_description": {
-          "scan_interval": "One grouped read of registers 100-108 per interval. 5 s suits LoRa."
+          "scan_interval": "One grouped read of registers 100-108 per interval."
         }
       }
     }

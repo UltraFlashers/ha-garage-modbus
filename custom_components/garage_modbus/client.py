@@ -1,4 +1,4 @@
-"""Acces Modbus RTU au controleur de garage (pont LoRa USB ou RS485)."""
+"""Acces Modbus RTU au controleur de garage (adaptateur USB-RS485)."""
 
 from __future__ import annotations
 
@@ -16,7 +16,7 @@ class GarageModbusError(Exception):
 
 
 class GarageModbusClient:
-    """Une seule liaison serie, une requete a la fois (le LoRa ne supporte pas mieux)."""
+    """Une seule liaison serie, une requete a la fois (bus RS485 en semi-duplex)."""
 
     def __init__(self, port: str, baudrate: int, slave: int, timeout: float = DEFAULT_TIMEOUT) -> None:
         self._client = AsyncModbusSerialClient(

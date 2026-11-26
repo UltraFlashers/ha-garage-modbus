@@ -11,7 +11,7 @@ CONF_MANUAL_PATH = "manual_path"
 
 DEFAULT_BAUDRATE = 9600
 DEFAULT_SLAVE = 1
-DEFAULT_SCAN_INTERVAL = 5  # s : la porte bouge, mais le LoRa est lent
+DEFAULT_SCAN_INTERVAL = 5  # s : la porte bouge ; une lecture groupee suffit
 DEFAULT_TIMEOUT = 5  # s
 BAUDRATES = [9600, 19200, 38400, 57600, 115200]
 

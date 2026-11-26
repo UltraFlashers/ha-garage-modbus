@@ -26,7 +26,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: GarageConfigEntry) -> bo
     client = GarageModbusClient(entry.data[CONF_PORT], entry.data[CONF_BAUDRATE], entry.data[CONF_SLAVE])
     coordinator = GarageCoordinator(hass, entry, client)
     try:
-        # Echec = ConfigEntryNotReady : Home Assistant reessaie tout seul (LoRa coupe...)
+        # Echec = ConfigEntryNotReady : Home Assistant reessaie tout seul (cable RS485 debranche...)
         await coordinator.async_config_entry_first_refresh()
     except Exception:
         client.close()

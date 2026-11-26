@@ -1,10 +1,10 @@
 # Garage Modbus pour Home Assistant
 
-Intégration Home Assistant du contrôleur de porte de garage **Garage Modbus** (ESP32-S3, carte Waveshare 8DI-8DO, firmware v6), relié en **Modbus RTU** par un pont **LoRa USB** ou un adaptateur **USB-RS485**.
+Intégration Home Assistant du contrôleur de porte de garage **Garage Modbus** (ESP32-S3, carte Waveshare 8DI-8DO, firmware v6), relié en **Modbus RTU** par un adaptateur **USB-RS485** branché sur le bornier RS485 de la carte.
 
 - Ajout par l'interface : **le port USB se choisit dans une liste**, avec saisie manuelle possible.
 - Un appareil **Garage** avec toutes ses entités : porte, lampe, bouton Stop, température, humidité, position, radar, pile du bouton Bluetooth, défaut, cellule, palpeur, voiture garée, portillon…
-- **Une seule lecture groupée** des registres 100 à 108 par cycle : économe pour le LoRa.
+- **Une seule lecture groupée** des registres 100 à 108 par cycle.
 - Port, vitesse et esclave modifiables ensuite (*Reconfigurer*), intervalle de lecture dans les *Options*.
 
 ## Installation
@@ -34,7 +34,7 @@ Le garage doit répondre pour que l'ajout aboutisse. Ensuite :
 - **Reconfigurer** (menu ⋮ de l'intégration) : changer de port USB, de vitesse ou d'esclave ;
 - **Options** : intervalle de lecture (5 s par défaut).
 
-Si le garage ne répond plus (LoRa coupé, carte éteinte), l'intégration passe en *nouvel essai* et se reconnecte toute seule.
+Si le garage ne répond plus (câble RS485 débranché, carte éteinte), l'intégration passe en *nouvel essai* et se reconnecte toute seule.
 
 > Ne pas garder en même temps le package YAML `garage_modbus.yaml` du dépôt firmware : les deux ouvriraient le même port USB. Utiliser l'un **ou** l'autre.
 
